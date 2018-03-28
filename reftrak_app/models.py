@@ -24,7 +24,8 @@ class RedirectList(db.Model):
     url = db.Column(db.String(255), index=True)
     description = db.Column(db.String(64), index=True)
 
-    def __init__(self, url, description):
+    def __init__(self, code, url, description=None):
+        self.code = code
         self.url = url
         self.description = description
 
