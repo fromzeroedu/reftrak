@@ -1,4 +1,5 @@
 from flask import Blueprint, redirect, abort, request
+from datetime import datetime
 
 from application import db
 from reftrak_app.models import RedirectList, RedirectLog
@@ -15,7 +16,8 @@ def init(code):
     redirect_log = RedirectLog(
         ip=ip,
         referrer=referrer,
-        code=code
+        code=code,
+        timestamp=datetime.utcnow()
     )
     db.session.add(redirect_log)
     db.session.commit()

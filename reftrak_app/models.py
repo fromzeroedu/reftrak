@@ -1,5 +1,3 @@
-from datetime import datetime
-
 from application import db
 
 class RedirectList(db.Model):
@@ -23,7 +21,7 @@ class RedirectLog(db.Model):
     code = db.Column(db.String(64), index=True)
     timestamp = db.Column(db.DateTime(), index=True)
 
-    def __init__(self, ip, referrer, code, timestamp=datetime.utcnow()):
+    def __init__(self, ip, referrer, code, timestamp):
         self.ip = ip
         self.referrer = referrer
         self.code = code
