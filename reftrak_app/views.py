@@ -10,7 +10,7 @@ def init(code):
     redirect_obj = RedirectList.query.filter_by(code=code).first()
 
     # log the redirect
-    ip = request.remote_addr
+    ip = request.access_route[0]
     referrer = request.referrer
     redirect_log = RedirectLog(
         ip=ip,
